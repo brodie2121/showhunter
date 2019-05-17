@@ -10,6 +10,7 @@ function pullEvents(artistArray) {
         promise = promise.then(function() {
             get(createUrl(artist))
             .then((response) => {
+                console.log(response);
                 createEvent(response);
             })
             return new Promise(function(resolve) {
@@ -32,6 +33,7 @@ function createEvent(item) {
     let venue = item._embedded.events[0]._embedded.venues[0].name;
     let date = item._embedded.events[0].dates.start.localDate;
     let startTime = item._embedded.events[0].dates.start.localTime;
+    let imageSource = item._embedded.events[0].images[0].url;
 
     let time = startTime.split(':');
     let hours = Number(time[0]);
@@ -43,9 +45,17 @@ function createEvent(item) {
     let newDate = formatDate(date);
 
     let eventContainer = document.getElementById('eventList');
-    let event = document.createElement('li');
-    event.textContent = `${name}`;
+    let event = document.createElement('div');
+    event.className = "card";
     eventContainer.append(event);
+
+    let artistImage = document.createElement('img');
+    artistImage.src = imageSource;
+    event.append(artistImage);
+    
+    let nameElement = document.createElement('h3');
+    nameElement.textContent = `${name}`;
+    event.append(nameElement);
     
     let venueElement = document.createElement('p');
     venueElement.textContent = `Venue: ${venue}`;
