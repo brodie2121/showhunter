@@ -1,7 +1,7 @@
 function getSpotify(URL) {
     return fetch(URL, {
         headers: {
-            'Authorization': 'Authorization: Bearer BQCFaOOy9Cqp4xrSiTlVDIiGBGQ8GOStKt-hhVSJuK72fe3eicGNr8SFnrmbalHK49j0--AVsyGZAJTMgAr1SZX3SzdpT5Bvu3qvEEug3Plg--FODW74KQXQC3yBvSZxshnjMKurjFQtupZflK_NB2PZ'
+            'Authorization': 'Authorization: Bearer BQCIwJAOVAFYD-V9lC6TsVaIK9RKNPk2meQPaJohOHS94yW09LW0ShOB8aAh4vUkGFQ9NemI2pTGWXBcTKnVOnEFtr074MYRkubZj-ReOFT9KGE36E1TwKSrV0yiB-N0fa5TfC9fxAm2K_ohGEW5D5FR'
         }})
             .then(function(response) {
             return response.json();
